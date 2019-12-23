@@ -3,7 +3,6 @@ package goa.demo;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -22,11 +21,10 @@ public class Controller {
     }
 
     @GetMapping("/users")
-    public ModelAndView users(Model model) {
-        ModelAndView mw = new ModelAndView("index");
+    public String users(Model model) {
         List users = (List) usersRepository.findAll();
-        mw.addObject("users", users);
-        return mw;
+        model.addAttribute("users", users);
+        return "index";
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
