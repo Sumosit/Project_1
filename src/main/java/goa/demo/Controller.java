@@ -7,9 +7,21 @@ import java.util.List;
 
 @RestController
 public class Controller {
+
+    private final UsersRepository usersRepository;
+
+    Controller(UsersRepository usersRepository) {
+        this.usersRepository = usersRepository;
+    }
+
     @GetMapping("/")
     String hello() {
         return "Hello world";
+    }
+
+    @GetMapping("/users")
+    Iterable<Users> users() {
+        return usersRepository.findAll();
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
