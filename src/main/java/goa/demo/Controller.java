@@ -7,16 +7,9 @@ import java.util.List;
 
 @RestController
 public class Controller {
-    private final ClientRepository clientRepository;
-
-    public Controller(ClientRepository clientRepository) {
-        this.clientRepository = clientRepository;
-    }
-
-    @GetMapping("get")
-    public List<Client> doGet(@RequestParam(required = false, defaultValue = "0") Integer page) {
-
-        return clientRepository.findAll(PageRequest.of(page, 5)).getContent();
+    @GetMapping("/")
+    String hello() {
+        return "Hello world";
     }
 
     @ExceptionHandler(IllegalArgumentException.class)

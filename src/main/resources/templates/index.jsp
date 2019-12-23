@@ -5,6 +5,7 @@
     <title>First JSP App</title>
 </head>
 <body>
+
 <p>Today <%= new java.util.Date() %></p>
 </body>
 </html>
