@@ -1,3 +1,5 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +7,8 @@
     <title>First JSP App</title>
 </head>
 <body>
-
-<p>Today <%= new java.util.Date() %></p>
+    <c:forEach items="users" var="users">
+        ${users.id}
+    </c:forEach>
 </body>
 </html>
